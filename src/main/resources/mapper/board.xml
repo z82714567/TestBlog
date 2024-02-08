@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.tenco.blog.repository.interfaces.BoardRepository">
+
+	<insert id="insert">
+		insert into board (title, content, writer, created_date) <!-- db컬럼명 -->
+		values( #{title}, #{content}, #{writer}, now()) <!-- 객체속성값 -->
+	</insert>
+
+<!-- 	<select id="selectBoard" resultType="com.tenco.bank.repository.entity.BoardEntity">
+		SELECT * FROM `user1`;
+	</select>
+
+	<select id="selectBoards" resultType="com.tenco.bank.repository.entity.BoardEntity">
+		SELECT * FROM `user1` WHERE
+		`uid`=#{uid};
+	</select>
+	
+	<update id="update">
+		update user_tb set username = #{username},
+		password =
+		#{password},
+		fullname = #{fullname} where id = #{id}
+	</update>
+
+	<delete id="delete">
+		delete from user_tb where id = #{id}
+	</delete> -->
+</mapper>

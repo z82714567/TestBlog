@@ -1,0 +1,45 @@
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+    session:
+      timeout: 30m
+  port: 80
+
+# JSP, mustache 원하는거 사용
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog?serverTimeZone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: asd1234
+# h2:
+#    console:
+#     enabled: true
+#  sql:
+#    init:
+#      data-locations:
+#        - classpath:db/data.sql
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    defer-datasource-initialization: true
+mybatis:
+  mapper-locations:
+  - classpath:mapper/**.xml
+  configuration:
+    map-underscore-to-camel-case: true # db는 스네이크 케이스로 컬럼명을 작성 했으나 java에서는 카멜로 작성해 이로 인해 오는 불일치를 해결하기 위한 설정.
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    
+
+logging:
+  level:
+    org.mybatis: DEBUG    
